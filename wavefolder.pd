@@ -1,14 +1,14 @@
-#N canvas 350 210 638 691 10;
+#N canvas 270 231 638 691 10;
 #X obj 336 311 Scope~ 130 130 256 3 128 -1 1 0 0 0 0 102 255 51 135
 135 135 0;
 #X obj 308 525 dac~;
-#X obj 370 453 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 2900 1;
+#X obj 370 453 hsl 128 15 0 0.5 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4200 1;
 #X obj 59 300 Scope~ 130 130 256 3 128 -1 1 0 0 0 0 102 255 51 135
 135 135 0;
 #X obj 279 49 sig~;
-#X obj 282 -37 hsl 128 15 1 0.007 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 9000 1;
+#X obj 282 -37 hsl 128 15 1 0.05 1 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1100 1;
 #X obj 214 140 pong~ 0 1 1;
 #X obj 279 12 line 0 1;
 #X obj 308 264 hip~ 5;
@@ -51,12 +51,12 @@
 #X floatatom 100 161 5 0 0 0 - - -;
 #X text 416 -37 fold amount;
 #X obj 284 -74 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3600 1;
+-1 -1 6800 1;
 #X obj 133 -2 *~;
 #X obj 133 -35 sig~ 0.2;
 #X text 420 -77 dc offset;
-#X obj 59 41 osc~ 2;
 #X text 353 263 remove dc offset;
+#X obj 60 41 osc~ 200;
 #X connect 2 0 14 1;
 #X connect 4 0 10 0;
 #X connect 4 0 6 2;
@@ -78,6 +78,6 @@
 #X connect 21 0 22 1;
 #X connect 22 0 6 0;
 #X connect 23 0 22 0;
-#X connect 25 0 3 0;
-#X connect 25 0 6 0;
-#X connect 25 0 12 1;
+#X connect 26 0 3 0;
+#X connect 26 0 6 0;
+#X connect 26 0 12 1;
