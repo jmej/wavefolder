@@ -1,78 +1,89 @@
-#N canvas 270 231 638 691 10;
-#X obj 336 311 Scope~ 130 130 256 3 128 -1 1 0 0 0 0 102 255 51 135
-135 135 0;
-#X obj 308 525 dac~;
-#X obj 370 453 hsl 128 15 0 0.5 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3600 1;
-#X obj 59 300 Scope~ 130 130 256 3 128 -1 1 0 0 0 0 102 255 51 135
-135 135 0;
-#X obj 282 -37 hsl 128 15 1 0.05 1 0 empty empty empty -2 -8 0 10 -262144
--1 -1 2000 1;
-#X obj 214 140 pong~ 0 1 1;
-#X text 336 11 smoothing;
-#X obj 245 104 *~ -1;
-#X msg 279 -12 \$1 20;
-#X obj 166 243 balance.mmb~;
-#X obj 308 486 *~ 0.1;
-#X text 250 242 RMS based makeup gain;
-#N canvas 0 22 450 300 sig2ctl 0;
-#X obj 227 108 metro 10;
-#X obj 227 132 snapshot~;
-#X obj 227 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#N canvas 109 124 906 691 10;
+#X obj 305 625 dac~;
+#X obj 367 553 hsl 128 15 0 0.5 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 2100 1;
+#X obj 421 51 hsl 128 15 1 0.05 1 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3000 1;
+#X text 475 99 smoothing;
+#X obj 409 192 *~ -1;
+#X msg 418 76 \$1 20;
+#X obj 305 331 balance.mmb~;
+#X obj 305 586 *~ 0.1;
+#X text 389 330 RMS based makeup gain;
+#X text 555 51 fold amount;
+#X obj 423 14 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4700 1;
+#X obj 352 132 *~;
+#X obj 352 99 sig~ 0.2;
+#X text 559 11 dc offset;
+#X text 359 284 remove dc offset;
+#X obj 304 283 hip~ 5;
+#X obj 418 100 vline~;
+#X obj 353 228 cyclone/pong~ 0 1 1;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array folded 100 float 5;
+#A 0 1.26658 1.4238 1.35343 1.18525 1.01363 0.83923 0.662737 0.484843
+0.306244 0.127646 -0.0502512 -0.22675 -0.401159 -0.572794 -0.740983
+-0.905067 -1.0644 -1.21836 -1.30665 -1.16334 -1.02715 -0.898604 -0.778193
+-0.666384 -0.563607 -0.470256 -0.386697 -0.313279 -0.250248 -0.197843
+-0.15626 -0.125656 -0.10614 -0.0977832 -0.100609 -0.114597 -0.139729
+-0.175856 -0.222827 -0.280447 -0.348484 -0.42666 -0.514663 -0.612138
+-0.718694 -0.833931 -0.95737 -1.08851 -1.22682 -1.27802 -1.12515 -0.966825
+-0.803678 -0.636346 -0.465482 -0.291759 -0.115868 0.0614995 0.239648
+0.417877 0.595487 0.77178 0.946063 1.11765 1.28586 1.45003 1.35002
+1.19373 1.04334 0.899453 0.762615 0.633359 0.512184 0.399594 0.295991
+0.201773 0.117303 0.042904 -0.021139 -0.0745821 -0.117223 -0.148903
+-0.169467 -0.178869 -0.17709 -0.164145 -0.140091 -0.10503 -0.0591064
+-0.00250833 0.0645349 0.141776 0.228898 0.325532 0.431292 0.545756
+0.668467 0.798935 0.936643 1.08104;
+#X coords 0 1 99 -1 200 140 1 0 0;
+#X restore 471 386 graph;
+#X obj 350 415 tabwrite~ folded;
+#X obj 361 390 metro 75;
+#X obj 367 363 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 227 60 loadbang;
-#X obj 227 165 outlet;
-#X obj 171 59 inlet~;
-#X connect 0 0 1 0;
-#X connect 1 0 4 0;
-#X connect 2 0 0 0;
-#X connect 3 0 2 0;
-#X connect 5 0 1 0;
-#X restore 301 140 pd sig2ctl;
-#X floatatom 301 164 5 0 0 0 - - -;
-#N canvas 0 22 450 300 sig2ctl 0;
-#X obj 227 108 metro 10;
-#X obj 227 132 snapshot~;
-#X obj 227 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array raw 64 float 5;
+#A 0 -0.385733 -0.442774 -0.498075 -0.55142 -0.6026 -0.651414 -0.697671
+-0.741185 -0.781779 -0.819303 -0.85361 -0.884564 -0.912045 -0.935944
+-0.956168 -0.972637 -0.985286 -0.994051 -0.998912 -0.99985 -0.996862
+-0.98996 -0.97917 -0.964534 -0.946112 -0.923973 -0.898194 -0.868885
+-0.836164 -0.80016 -0.761014 -0.71888 -0.673922 -0.626318 -0.576253
+-0.52392 -0.469526 -0.41329 -0.35543 -0.296175 -0.235757 -0.174413
+-0.112384 -0.0499122 0.012756 0.0753736 0.137695 0.199474 0.260471
+0.320444 0.379159 0.436385 0.491899 0.54548 0.596911 0.645998 0.692548
+0.736377 0.777315 0.815201 0.849886 0.881233 0.90912 0.933424;
+#X coords 0 1 64 -1 200 140 1;
+#X restore 46 301 graph;
+#X obj 47 199 metro 75;
+#X obj 47 172 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 227 60 loadbang;
-#X obj 227 165 outlet;
-#X obj 171 59 inlet~;
-#X connect 0 0 1 0;
-#X connect 1 0 4 0;
-#X connect 2 0 0 0;
-#X connect 3 0 2 0;
-#X connect 5 0 1 0;
-#X restore 100 137 pd sig2ctl;
-#X floatatom 100 161 5 0 0 0 - - -;
-#X text 416 -37 fold amount;
-#X obj 284 -74 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 7900 1;
-#X obj 133 -2 *~;
-#X obj 133 -35 sig~ 0.2;
-#X text 420 -77 dc offset;
-#X text 264 210 remove dc offset;
-#X obj 60 41 osc~ 200;
-#X obj 213 210 hip~ 5;
-#X obj 279 12 vline~;
-#X connect 2 0 10 1;
-#X connect 4 0 8 0;
-#X connect 5 0 23 0;
-#X connect 7 0 5 1;
-#X connect 7 0 14 0;
-#X connect 8 0 24 0;
-#X connect 9 0 10 0;
-#X connect 10 0 1 0;
-#X connect 10 0 1 1;
-#X connect 12 0 13 0;
-#X connect 14 0 15 0;
-#X connect 17 0 18 1;
-#X connect 18 0 5 0;
-#X connect 19 0 18 0;
-#X connect 22 0 3 0;
-#X connect 22 0 5 0;
-#X connect 22 0 9 1;
-#X connect 23 0 9 0;
-#X connect 24 0 7 0;
-#X connect 24 0 5 2;
-#X connect 24 0 12 0;
+#X obj 47 253 tabwrite~ raw;
+#X obj 275 183 osc~ 440;
+#X text 6 13 Implementation of Serge/Buchla influenced "wavefolding"
+;
+#X text 5 34 Inspired by comments on my thread here: https://www.muffwiggler.com/forum/viewtopic.php?t=125642&highlight=
+;
+#X text 5 84 jmej 2017;
+#X connect 1 0 7 1;
+#X connect 2 0 5 0;
+#X connect 4 0 17 1;
+#X connect 5 0 16 0;
+#X connect 6 0 7 0;
+#X connect 6 0 19 0;
+#X connect 7 0 0 0;
+#X connect 7 0 0 1;
+#X connect 10 0 11 1;
+#X connect 11 0 17 0;
+#X connect 12 0 11 0;
+#X connect 15 0 6 0;
+#X connect 16 0 4 0;
+#X connect 16 0 17 2;
+#X connect 17 0 15 0;
+#X connect 20 0 19 0;
+#X connect 21 0 20 0;
+#X connect 23 0 25 0;
+#X connect 24 0 23 0;
+#X connect 26 0 6 1;
+#X connect 26 0 17 0;
+#X connect 26 0 25 0;
